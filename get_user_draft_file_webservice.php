@@ -20,8 +20,8 @@ define('AJAX_SCRIPT', true);
 define('NO_MOODLE_COOKIES', true);
 
 
-require_once('../../config.php');
-require_once('filelib.php');
+require_once(__DIR__ .'/../../config.php');
+require_once(__DIR__ .'/filelib.php');
 require_once($CFG->dirroot . '/webservice/lib.php');
 require_once($CFG->dirroot . '/blocks/my_external_privatefiles/locallib.php');
 //authenticate the user
@@ -38,4 +38,4 @@ if (empty($enabledfiledownload)) {
 
 //finally we can serve the file :)
 $relativepath = get_file_argument();
-file_get_user_draft($relativepath, 1);
+block_my_external_privatefiles_file_get_user_draft($relativepath, 1);

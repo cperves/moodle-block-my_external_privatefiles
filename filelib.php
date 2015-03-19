@@ -18,7 +18,7 @@
  * @param null|string $preview the preview mode, defaults to serving the original file
  * @todo MDL-31088 file serving improments
  */
-function file_get_user_draft($relativepath, $forcedownload) {
+function block_my_external_privatefiles_file_get_user_draft($relativepath, $forcedownload) {
 	global $DB, $CFG, $USER;
 	// relative path must start with '/'
 	if (!$relativepath) {

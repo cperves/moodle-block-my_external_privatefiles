@@ -13,7 +13,7 @@ require_once("$CFG->libdir/externallib.php");
 class block_my_external_privatefiles_external extends external_api {
 	
 	public static function get_private_files_zip($username) {
-		global $DB,$_SERVER;
+		global $DB;
 		require_capability('block/my_external_privatefiles:can_create_draftuserfiles_for_other_users',context_system::instance());
 		$user_record = $DB->get_record('user', array('username'=>$username));
 		if(!$user_record){

@@ -15,6 +15,7 @@ $string['external_moodleDesc']='a formatted list of external moodle as moodle_ur
 $string['my_external_privatefiles:addinstance'] = 'add instance of retrieve private files from external moodle';
 $string['my_external_privatefiles:can_retrieve_files_from_other_users']='retrieve file from other users';
 $string['my_external_privatefiles:can_create_draftuserfiles_for_other_users']='Create draft user files for other users';
+$string['my_external_privatefiles:myaddinstance'] = 'add instance of retrieve private files from external moodle to Dashboard';
 $string['retrieve_external_privatesfiles_serverx'] = '{$a}';
 $string['retrieve_external_privatesfiles_directive'] = 'Retrieve private files from platform clicking on button';
 $string['retrieve_external_privatesfiles'] = 'Retrieve files';

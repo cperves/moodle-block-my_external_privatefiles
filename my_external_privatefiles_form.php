@@ -9,7 +9,7 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 require_once("$CFG->libdir/formslib.php");
-class my_external_privatefiles_form extends moodleform{
+class block_my_external_privatefiles_form extends moodleform{
 	function definition(){
 		//TODO datas
 		$serveroptions = $this->_customdata['serveroptions'];

@@ -10,6 +10,17 @@
  * @license    http://www.cecill.info/licences/Licence_CeCILL_V2-en.html
  */
 $capabilities = array(
+		
+		'block/my_external_privatefiles:myaddinstance' => array(
+				'riskbitmask' => RISK_XSS,
+		
+				'captype' => 'write',
+				'contextlevel' => CONTEXT_SYSTEM,
+				'archetypes' => array(
+					'coursecreator' => CAP_ALLOW,
+					'manager' => CAP_ALLOW
+				),
+		),
 	'block/my_external_privatefiles:addinstance' => array(
         'riskbitmask' => RISK_XSS,
 

@@ -8,7 +8,7 @@
  * @author Celine Perves <cperves@unistra.fr>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class my_external_private_files_utils {
+class block_my_external_privatefiles_utils {
 	public static function download_external_privatefiles($domainname, $token){
 		global $CFG, $USER;
 		$config = get_config('my_external_privatefiles');
@@ -18,7 +18,7 @@ class my_external_private_files_utils {
 			//first construct file name
 			$site_info = NULL;
 			try{
-				$site_info = my_external_private_files_utils::rest_call_client($domainname,$token,'core_webservice_get_site_info');
+				$site_info = block_my_external_privatefiles_utils::rest_call_client($domainname,$token,'core_webservice_get_site_info');
 			}catch(Exception $e){
 				throw new Exception('site name can \'t be retrieved : '.$e->getMessage());
 			}
@@ -48,7 +48,7 @@ class my_external_private_files_utils {
 		$username=$USER->username;
 		$restformat = 'xml';
 		$params = array('username' => $USER->username);
-		$file_returned  = my_external_private_files_utils::rest_call_client($domainname,$token,$functionname,$params);
+		$file_returned  = block_my_external_privatefiles_utils::rest_call_client($domainname,$token,$functionname,$params);
 		if(isset($file_returned->exception)){
 			if(isset($file_returned->message)){
 				throw new Exception($file_returned->message);
@@ -62,12 +62,12 @@ class my_external_private_files_utils {
 		$tokenurl = $url . '?token=' . $token; //NOTE: in your client/app don't forget to attach the token to your download url
 		//redirect($tokenurl);
 		require_once($CFG->dirroot.'/lib/filelib.php');
-		my_external_private_files_utils::download($tokenurl,$filename);
+		block_my_external_privatefiles_utils::download($tokenurl,$filename);
 	}
 	public static function print_block_content(){
 		global $OUTPUT;
 		$output=array();
-		$external_moodles = get_config('my_external_privatefiles','external_moodles');
+		$external_moodles = get_config('block_my_external_privatefiles','external_moodles');
 		//extract key/value
 		$external_moodles = explode(';', $external_moodles);
 		if($external_moodles && !empty($external_moodles)){
@@ -76,7 +76,7 @@ class my_external_private_files_utils {
 					$key_value = explode(',',$key_value);
 					$domainname = $key_value[0];
 					$token = $key_value[1];
-					$return = my_external_private_files_utils::print_my_external_privatefiles_entry($domainname,$token);
+					$return = block_my_external_privatefiles_utils::print_my_external_privatefiles_entry($domainname,$token);
 					if($return){
 						$output[]= $return;
 					}
@@ -105,7 +105,7 @@ class my_external_private_files_utils {
 		//TODO better catching error
 		$site_info = NULL;
 		try{
-			$site_info = my_external_private_files_utils::rest_call_client($domainname,$token,'core_webservice_get_site_info');
+			$site_info = block_my_external_privatefiles_utils::rest_call_client($domainname,$token,'core_webservice_get_site_info');
 		}catch(Exception $e){
 			error_log('site error : '.$e->getMessage());
 			return null;

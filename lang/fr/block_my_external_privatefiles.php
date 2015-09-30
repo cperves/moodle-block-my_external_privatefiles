@@ -15,6 +15,7 @@ $string['external_moodleDesc']='Une liste formattée des Moodles externes sous l
 $string['my_external_privatefiles:addinstance'] = 'ajouter une instance du block Télécharger vos fichiers privés d\'un autre Moodle';
 $string['my_external_privatefiles:can_retrieve_files_from_other_users']='récupérer les fichiers privés d\'un autre utilisateur';
 $string['my_external_privatefiles:can_create_draftuserfiles_for_other_users']='Créer des fichiers utilisateurs de type draft pour d\'autres utilisateurs';
+$string['my_external_privatefiles:myaddinstance'] = 'ajouter une instance du block Télécharger vos fichiers privés d\'un autre Moodle au Tableau de bord';
 $string['retrieve_external_privatesfiles_serverx'] = '{$a}';
 $string['retrieve_external_privatesfiles_directive'] = 'Récupérer vos fichiers privés d\'un autre Moodle en cliquant sur le bouton correspondant';
 $string['retrieve_external_privatesfiles'] = 'Récupérer vos fichiers';

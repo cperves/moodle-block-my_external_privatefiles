@@ -11,7 +11,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version   = 2015030903;  
+$plugin->version   = 2015093002;  
 $plugin->requires  = 2012061700;       // Requires this Moodle version
 $plugin->component = 'block_my_external_privatefiles'; // Full name of the plugin (used for diagnostics)
 $plugin->cron = 14400;

@@ -23,5 +23,14 @@ function xmldb_block_my_external_privatefiles_upgrade($oldversion, $block) {
 			set_config('external_moodles',$new_external_moodles,'my_external_privatefiles');
 		}
 	}
+	if($oldversion < 2015093002){
+		//changing param names
+		$oldconfig = get_config('my_external_privatefiles');
+		set_config('external_moodles',$oldconfig->external_moodles,'block_my_external_privatefiles');
+		set_config('filename',$oldconfig->filename,'block_my_external_privatefiles');
+		set_config('includesitename',$oldconfig->includesitename,'block_my_external_privatefiles');
+		set_config('sitenamelength',$oldconfig->sitenamelength,'block_my_external_privatefiles');		
+		
+	}
 	return true;
 }

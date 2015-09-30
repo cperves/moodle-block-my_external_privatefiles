@@ -26,7 +26,7 @@ require_sesskey();
 $token  = required_param('token', PARAM_TEXT);
 $domainname = required_param('domainname', PARAM_TEXT);
 try{
-	my_external_private_files_utils::download_external_privatefiles($domainname, $token);
+	block_my_external_privatefiles_utils::download_external_privatefiles($domainname, $token);
 }catch(Exception $e){
 	echo $OUTPUT->header();
 	echo $OUTPUT->box_start('generalbox');

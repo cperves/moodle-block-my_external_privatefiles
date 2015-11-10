@@ -1,6 +1,6 @@
 <?php
 /**
- * upgrade for block my_external_backup_courses block
+ * upgrade for block my_external_private_files block
  *
  * @package
  * @subpackage

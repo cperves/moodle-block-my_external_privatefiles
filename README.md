@@ -1,9 +1,9 @@
 # block my_external_privatesfiles : Download private files from other moodle platforms
 
-my_external_privatesfiles is a Moodle block that enable a user to retirieve a zip of his private files from an external moodle
+my_external_privatesfiles is a Moodle block that enable a user to retrieve a zip of his private files from an external moodle
 
 ## Features
-* private files retrieved from username
+* private files are retrieved on other platforms threw same username
 * Multiple external moodle possible
 * create zip files on external moodle that are destructed by cron
 * in case of webservice error doesn't, show the link to external moodle in block
@@ -13,9 +13,11 @@ my_external_privatesfiles is a Moodle block that enable a user to retirieve a zi
 * This plugin use a capability block/my_external_privatefiles:can_retrieve_files_from_other_users that enable webservice account to donload files of other users
 * To improve security it is strongly recommended to generate token with IPrestriction on server side IPs
 
+## mnet warning usage
+this plugin may not work in MNet environments fully because the username in that conditions username is not unique
+
+
 ## Download
-
-
 
 ## Installation
 

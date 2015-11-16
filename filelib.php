@@ -63,8 +63,8 @@ function block_my_external_privatefiles_file_get_user_draft($relativepath, $forc
 			if (!$file = $fs->get_file($context->id, $component, $filearea, $itemid, $filepath, $filename) or $file->is_directory()) {
 				send_file_not_found();
 			}
-
-			session_get_instance()->write_close(); // unlock session during fileserving
+			$session_instance = new \core\session\manager();
+			$session_instance->write_close(); // unlock session during fileserving
 			send_stored_file($file, 0, 0, true, array('preview' => null)); // must force download - security!
 		} else {
 			send_file_not_found();

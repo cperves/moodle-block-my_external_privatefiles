@@ -4,10 +4,9 @@
  *
  * @package  
  * @subpackage 
- * @copyright  2012 unistra  {@link http://unistra.fr}
+ * @copyright  2017 unistra  {@link http://unistra.fr}
  * @author Celine Perves <cperves@unistra.fr>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @license    http://www.cecill.info/licences/Licence_CeCILL_V2-en.html
  */
 $string['pluginname'] = 'Télécharger vos fichiers privés d\'un autre Moodle';
 $string['external_moodle']='Liste des Moodles externes auxquels se connecter';
@@ -28,3 +27,5 @@ $string['sitenamelength']='Longueur du nom du site dans le nom du fichier';
 $string['sitenamelength_desc']='Longueur du nom du site dans le nom du fichier';
 $string['shortname']='Nom du site dans sa version courte';
 $string['shortname_desc']='Nom du site dans sa version courte';
+$string['my_external_privatefiles_cron_task'] = 'tâche de cron de my external private files : efface les fichiers draft générés';
+$string['privacy:metadata'] = 'Le bloc  \'Télécharger vos fichiers privés d\'un autre Moodle\'ne stoque aucune donnée personnelle.';

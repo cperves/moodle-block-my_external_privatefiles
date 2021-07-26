@@ -4,10 +4,9 @@
  *
  * @package  
  * @subpackage 
- * @copyright  2012 unistra  {@link http://unistra.fr}
+ * @copyright  2017 unistra  {@link http://unistra.fr}
  * @author Celine Perves <cperves@unistra.fr>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @license    http://www.cecill.info/licences/Licence_CeCILL_V2-en.html
  */
 $string['pluginname'] = 'Download private files from other moodle platforms';
 $string['external_moodle']='external moodle list to connect to';
@@ -28,3 +27,5 @@ $string['sitenamelength']='Site name length in file name';
 $string['sitenamelength_desc']='Site name length in file name';
 $string['shortname']='Site name is shortname';
 $string['shortname_desc']='Site name is shortname';
+$string['my_external_privatefiles_cron_task'] = 'my external private files cron task : delete draft files generated';
+$string['privacy:metadata'] = 'The block \'Download provate files from other moodle platform\' does not store any personal data.';

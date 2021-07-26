@@ -10,12 +10,26 @@
  * @license    http://www.cecill.info/licences/Licence_CeCILL_V2-en.html
  */
 $functions = array(
-	'block_my_external_privatefiles_get_private_files_zip' => array(
-		'classname' => 'block_my_external_privatefiles_external',
-		'methodname' => 'get_private_files_zip',
-		'classpath' => 'blocks/my_external_privatefiles/externallib.php',
-		'description' => 'Get a zip of all private files for a given username',
-		'type' => 'read',
-		'capabilities' => 'block/my_external_privatefiles:can_retrieve_files_from_other_users, block/my_external_privatefiles:can_create_draftuserfiles_for_other_users',
-	),	
+     'block_my_external_privatefiles_get_private_files_zip' => array(
+          'classname' => 'block_my_external_privatefiles_external',
+          'methodname' => 'get_private_files_zip',
+          'classpath' => 'blocks/my_external_privatefiles/externallib.php',
+          'description' => 'Get a zip of all private files for a given username',
+          'type' => 'read',
+          'capabilities' => 'block/my_external_privatefiles:can_retrieve_files_from_other_users', 'my_external_privatefiles:can_create_draftuserfiles_for_other_users'
+     ),
 );
+
+$services = array(
+    'Block my external private files web services' => array(
+        'functions' => array (  'block_my_external_privatefiles_get_private_files_zip',
+            'core_webservice_get_site_info'
+        ),
+        'requiredcapability' => '',
+        'restrictedusers' => 1,
+        'enabled' => 1,
+        'shortname' => 'wsblockmyexternalprivatefiles',
+        'downloadfiles' => 1
+    )
+);
+

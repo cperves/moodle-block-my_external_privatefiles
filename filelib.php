@@ -18,57 +18,12 @@
  * @param null|string $preview the preview mode, defaults to serving the original file
  * @todo MDL-31088 file serving improments
  */
-function block_my_external_privatefiles_file_get_user_draft($relativepath, $forcedownload) {
-	global $DB, $CFG, $USER;
-	// relative path must start with '/'
-	if (!$relativepath) {
-		print_error('invalidargorconf');
-	} else if ($relativepath[0] != '/') {
-		print_error('pathdoesnotstartslash');
-	}
-
-	// extract relative path components
-	$args = explode('/', ltrim($relativepath, '/'));
-
-	if (count($args) < 3) { // always at least context, component and filearea
-		print_error('invalidarguments');
-	}
-
-	$contextid = (int)array_shift($args);
-	$component = clean_param(array_shift($args), PARAM_COMPONENT);
-	$filearea  = clean_param(array_shift($args), PARAM_AREA);
-	$itemid = clean_param(array_shift($args), PARAM_INT);
-
-	list($context, $course, $cm) = get_context_info_array($contextid);
-
-	$fs = get_file_storage();
-
-	// ========================================================================================================================
-	if ($component === 'user') {
-		if ($filearea === 'draft' and $context->contextlevel == CONTEXT_USER and $itemid != 0) {
-			require_login();
-
-			if (isguestuser()) {
-				send_file_not_found();
-			}
-
-			if ($USER->id !== $context->instanceid) {
-				if(!has_capability('block/my_external_privatefiles:can_retrieve_files_from_other_users', $context)){
-					send_file_not_found();
-				}
-			}
-
-			$filename = array_pop($args);
-			$filepath = $args ? '/'.implode('/', $args).'/' : '/';
-			if (!$file = $fs->get_file($context->id, $component, $filearea, $itemid, $filepath, $filename) or $file->is_directory()) {
-				send_file_not_found();
-			}
-			$session_instance = new \core\session\manager();
-			$session_instance->write_close(); // unlock session during fileserving
-			send_stored_file($file, 0, 0, true, array('preview' => null)); // must force download - security!
-		} else {
-			send_file_not_found();
-		}
-	}
-
+function block_my_external_privatefiles_file_get_user_draft($relativepath, $forcedownload=true) {
+    $file = block_my_external_privatefiles_utils::get_draft_file($relativepath);
+    if(empty($file)) {
+      send_file_not_found();
+    } else if($file !== -1) {
+        send_stored_file($file, 0, 0, true, array('preview' => null)); // must force download - security!
+    }
 }
+

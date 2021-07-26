@@ -10,18 +10,18 @@
  * @license    http://www.cecill.info/licences/Licence_CeCILL_V2-en.html
  */
 $capabilities = array(
-		
-		'block/my_external_privatefiles:myaddinstance' => array(
-				'riskbitmask' => RISK_XSS,
-		
-				'captype' => 'write',
-				'contextlevel' => CONTEXT_SYSTEM,
-				'archetypes' => array(
-					'coursecreator' => CAP_ALLOW,
-					'manager' => CAP_ALLOW
-				),
-		),
-	'block/my_external_privatefiles:addinstance' => array(
+          
+          'block/my_external_privatefiles:myaddinstance' => array(
+                    'riskbitmask' => RISK_XSS,
+          
+                    'captype' => 'write',
+                    'contextlevel' => CONTEXT_SYSTEM,
+                    'archetypes' => array(
+                         'coursecreator' => CAP_ALLOW,
+                         'manager' => CAP_ALLOW
+                    ),
+          ),
+     'block/my_external_privatefiles:addinstance' => array(
         'riskbitmask' => RISK_XSS,
 
         'captype' => 'write',
@@ -30,21 +30,21 @@ $capabilities = array(
             'manager' => CAP_ALLOW
         ),
     ),
-	'block/my_external_privatefiles:can_retrieve_files_from_other_users' => array(
-				'riskbitmask' => RISK_PERSONAL,
-				'captype' => 'read',
-				'contextlevel' => CONTEXT_SYSTEM,
-				'archetypes' => array(
-						'manager' => CAP_INHERIT
-				),
-		),
-	'block/my_external_privatefiles:can_create_draftuserfiles_for_other_users' => array(
-				'riskbitmask' => RISK_PERSONAL,
-				'captype' => 'read',
-				'contextlevel' => CONTEXT_SYSTEM,
-				'archetypes' => array(
-						'manager' => CAP_INHERIT
-				),
-		),
+     'block/my_external_privatefiles:can_retrieve_files_from_other_users' => array(
+                    'riskbitmask' => RISK_PERSONAL,
+                    'captype' => 'read',
+                    'contextlevel' => CONTEXT_SYSTEM,
+                    'archetypes' => array(
+                              'manager' => CAP_INHERIT
+                    ),
+          ),
+     'block/my_external_privatefiles:can_create_draftuserfiles_for_other_users' => array(
+                    'riskbitmask' => RISK_PERSONAL,
+                    'captype' => 'read',
+                    'contextlevel' => CONTEXT_SYSTEM,
+                    'archetypes' => array(
+                              'manager' => CAP_INHERIT
+                    ),
+          ),
 );
 ?>

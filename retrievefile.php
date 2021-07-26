@@ -26,11 +26,11 @@ require_sesskey();
 $token  = required_param('token', PARAM_TEXT);
 $domainname = required_param('domainname', PARAM_TEXT);
 try{
-	block_my_external_privatefiles_utils::download_external_privatefiles($domainname, $token);
+     block_my_external_privatefiles_utils::download_external_privatefiles($domainname, $token);
 }catch(Exception $e){
-	echo $OUTPUT->header();
-	echo $OUTPUT->box_start('generalbox');
-	echo $e->getMessage();
-	echo $OUTPUT->box_end();
-	echo $OUTPUT->footer();
+     echo $OUTPUT->header();
+     echo $OUTPUT->box_start('generalbox');
+     echo $e->getMessage();
+     echo $OUTPUT->box_end();
+     echo $OUTPUT->footer();
 }

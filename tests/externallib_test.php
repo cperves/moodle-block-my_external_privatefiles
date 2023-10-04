@@ -22,9 +22,16 @@
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die();
+namespace block_my_external_privatefiles;
 
 global $CFG;
+
+use block_my_external_privatefiles_external;
+use block_my_external_privatefiles_utils;
+use context_system;
+use context_user;
+use external_api;
+use externallib_advanced_testcase;
 
 require_once(__DIR__.'/../locallib.php');
 require_once(__DIR__.'/../externallib.php');
@@ -35,7 +42,7 @@ require_once($CFG->dirroot . '/backup/util/includes/backup_includes.php');
 //require_once($CFG->dirroot . '/backup/util/includes/restore_includes.php');
 require_once($CFG->dirroot.'/webservice/lib.php');
 
-class block_my_external_privatefiles_externallib_testcase extends externallib_advanced_testcase {
+class externallib_test extends externallib_advanced_testcase {
     private $datagenerator;
     private $user;
     private $wsuser;
@@ -58,7 +65,7 @@ class block_my_external_privatefiles_externallib_testcase extends externallib_ad
 
     }
 
-    protected function setUp() {
+    protected function setUp():void {
         parent::setUp();
         global $DB, $CFG;
         $this->resetAfterTest(true);

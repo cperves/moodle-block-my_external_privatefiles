@@ -11,6 +11,8 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version   = 2021030800;
-$plugin->requires  = 2018051708;       // Requires this Moodle version
+$plugin->version   = 2023053000;
+$plugin->requires  = 2022041904;       // Requires this Moodle version
 $plugin->component = 'block_my_external_privatefiles'; // Full name of the plugin (used for diagnostics)
+$plugin->release = '3.0.0';
+$plugin->maturity   = MATURITY_STABLE;

@@ -32,7 +32,7 @@ class block_my_external_privatefiles_utils {
                $sitename = preg_replace('/[^a-zA-Z0-9-]/', '_', $sitename);
                //passit to 150characters
                try{
-                    $sitenamelength = isset($config->sitenamelength) && !empty($config->sitenamelength)? (int)$config->sitenamelength :strlen($sitename);
+                    $sitenamelength = isset($config->sitenamelength) && !empty($config->sitenamelength)? (int)$config->sitenamelength :strlen($sitename ?? '');
                     $sitename = substr($sitename,0,$sitenamelength);
                }catch(Exception $ex){
                     //Nothing to do keep sitename original length
@@ -137,7 +137,7 @@ class block_my_external_privatefiles_utils {
           $restformat = ($restformat == 'json')?'&moodlewsrestformat=' . $restformat:'';
           $resp = $curl->post($serverurl . $restformat, $params);
           $respalt=$resp;
-          $resp = json_decode($resp);
+          $resp = json_decode($resp ?? '');
           //check if errors encountered
           if(!isset($resp)){
                throw new Exception($respalt);
@@ -162,7 +162,7 @@ class block_my_external_privatefiles_utils {
          curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
          $r = curl_exec($ch);
          curl_close($ch);
-         $array_response=json_decode($r);
+         $array_response=json_decode($r ?? '');
          if(!isset($array_response)){
               header('Expires: 0'); // no cache
               header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
@@ -256,16 +256,16 @@ class block_my_external_privatefiles_utils {
          global $USER;
          // relative path must start with '/'
          if (!$relativepath) {
-             print_error('invalidargorconf');
+             throw new moodle_exception('invalidargorconf');
          } else if ($relativepath[0] != '/') {
-             print_error('pathdoesnotstartslash');
+             throw new moodle_exception('pathdoesnotstartslash');
          }
 
          // extract relative path components
-         $args = explode('/', ltrim($relativepath, '/'));
+         $args = explode('/', ltrim($relativepath ?? '', '/'));
 
          if (count($args) < 3) { // always at least context, component and filearea
-             print_error('invalidarguments');
+             throw new moodle_exception('invalidarguments');
          }
 
          $contextid = (int)array_shift($args);

@@ -30,12 +30,12 @@ use block_my_external_privatefiles_external;
 use block_my_external_privatefiles_utils;
 use context_system;
 use context_user;
-use external_api;
+use \core_external\external_api;
 use externallib_advanced_testcase;
 
 require_once(__DIR__.'/../locallib.php');
-require_once(__DIR__.'/../externallib.php');
 require_once(__DIR__.'/../filelib.php');
+require_once(__DIR__.'/../externallib.php');
 require_once($CFG->dirroot . '/webservice/tests/helpers.php');
 require_once($CFG->libdir . '/accesslib.php');
 require_once($CFG->dirroot . '/backup/util/includes/backup_includes.php');

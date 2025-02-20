@@ -156,12 +156,13 @@ class block_my_external_privatefiles_utils {
      */
      public static function download($url,$filename){
           set_time_limit(0);
-         $ch = curl_init();
-         curl_setopt($ch, CURLOPT_URL, $url);
-         curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-         $r = curl_exec($ch);
-         curl_close($ch);
+          $curl = new curl;
+          $curl->setopt(array(
+              'CURLOPT_URL' => $url,
+              'CURLOPT_RETURNTRANSFER' =>true,
+              'CURLOPT_FOLLOWLOCATION' => true,
+          ));
+          $r = $curl->get($url);
          $array_response=json_decode($r ?? '');
          if(!isset($array_response)){
               header('Expires: 0'); // no cache
